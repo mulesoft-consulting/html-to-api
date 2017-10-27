@@ -1,0 +1,21 @@
+#%RAML 1.0
+baseUri: http://localhost:8081/api
+title: Gas Price API
+version: 1.0
+
+types: 
+  GasPrice: !include datatypes/gasprice-datatype.raml
+
+/gasprice:
+  post:
+    description: Create a provider
+    body: 
+      application/json:
+        type: GasPrice
+        example: !include samples/gasprice-post-example.raml
+    responses: 
+      201:
+        body: 
+          application/json:
+            type: GasPrice
+            example: !include samples/gasprice-example.raml
